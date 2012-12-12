@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ariatemplates/grunt-verifylowercase.png)](https://travis-ci.org/ariatemplates/grunt-verifylowercase)
 # grunt-verifylowercase
 
 Verifies that files have lowercase extensions.
@@ -22,7 +23,7 @@ The grunt task will fail if a filename has an uppercase letter in it's extension
 
 ### Config example
 
-```json
+```
 verifylowercase : {
    all : {
       files : ["src/**"]
