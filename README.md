@@ -17,7 +17,7 @@ grunt.loadNpmTasks('grunt-verifylowercase');
 
 ## Documentation
 
-`verifylowercase` is a multitask. Inside your `grunt.js` add a section named `verifylowercase` containing the list of files that should be analized.
+`verifylowercase` is a multitask. Inside your `grunt.js` add a section named `verifylowercase` containing the list of files that should be analyzed.
 
 The grunt task will fail if a filename has an uppercase letter in it's extension.
 
