@@ -13,21 +13,25 @@ module.exports = function (grunt) {
      * Verifies that all the files in the input directory have lowercase extensions.
      */
     grunt.registerMultiTask('verifylowercase', 'Verifies that all files have lowercase extensions.', function () {
-        grunt.log.write('Verifying lowercase in file names for '.cyan);
-        grunt.log.writeln(this.data.files);
-
-        var files = grunt.file.expandFiles(this.data.files);
+        grunt.log.write('Verifying lowercase in file names '.cyan);
+        var files = this.filesSrc;
+        if (!files && grunt.file.expandFiles) {
+            // grunt 0.3 compatibility
+            grunt.log.write(this.data.files + ' ');
+            files = grunt.file.expandFiles(this.data.files);
+        }
+        grunt.log.writeln('('.cyan + ('' + files.length).yellow + (' files)').cyan);
         grunt.verbose.writeln(files.join("\n"));
 
         if (files.length > 0) {
             files.forEach(function (filePath) {
-                if (!grunt.helper('hasLowercaseExtension', filePath)) {
+                if (!hasLowercaseExtension(filePath)) {
                     grunt.log.error(("" + filePath).bold.red + ' has uppercase characters in the extension.'.red);
                     grunt.warn('Lowercase extension checking failed.');
                 }
             });
         } else {
-            grunt.log.error('No files matching glob pattern '.bold.red + ("" + this.data.files).red);
+            grunt.log.error('No input file to check.'.bold.red);
         }
 
         // Fail task if errors were logged.
@@ -39,10 +43,18 @@ module.exports = function (grunt) {
         grunt.log.ok();
     });
 
-    grunt.registerHelper('hasLowercaseExtension', function (filename) {
+    var hasLowercaseExtension = function (filename) {
         var extension = path.extname(filename);
         var lower = extension.toLowerCase();
 
         return extension === lower;
-    });
+    };
+
+    if (grunt.registerHelper) {
+        // publish hasLowercaseExtension as a grunt 0.3 helper, if run with grunt 0.3
+        grunt.registerHelper('hasLowercaseExtension', hasLowercaseExtension);
+        hasLowercaseExtension = function (filename) {
+            return grunt.helper('hasLowercaseExtension', filename);
+        };
+    }
 };
