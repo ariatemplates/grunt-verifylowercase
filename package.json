@@ -1,34 +1,40 @@
 {
-    "name" : "grunt-verifylowercase",
-    "description" : "Verifies that files have lowercase extensions.",
-    "version" : "0.1.0",
-    "homepage" : "https://github.com/ariatemplates/grunt-verifylowercase",
-    "author" : {
-        "name" : "Aria Templates",
-        "email" : "contact@ariatemplates.com",
-        "url" : "http://ariatemplates.com"
-    },
-    "repository" : {
-        "type" : "git",
-        "url" : "git://github.com/ariatemplates/grunt-verifylowercase.git"
-    },
-    "bugs" : {
-        "url" : "https://github.com/ariatemplates/grunt-verifylowercase/issues"
-    },
-    "licenses" : [{
-                "type" : "Apache",
-                "url" : "https://github.com/ariatemplates/grunt-verifylowercase/blob/master/LICENSE-Apache"
-            }],
-    "main" : "grunt.js",
-    "bin" : "bin/grunt-verifylowercase",
-    "engines" : {
-        "node" : "*"
-    },
-    "scripts" : {
-        "test" : "grunt test --verbose"
-    },
-    "devDependencies" : {
-        "grunt" : "~0.3.17"
-    },
-    "keywords" : ["gruntplugin", "lowercase", "extension"]
+  "name": "grunt-verifylowercase",
+  "description": "Verifies that files have lowercase extensions.",
+  "version": "0.2.0",
+  "homepage": "https://github.com/ariatemplates/grunt-verifylowercase",
+  "author": {
+    "name": "Aria Templates",
+    "email": "contact@ariatemplates.com",
+    "url": "http://ariatemplates.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ariatemplates/grunt-verifylowercase.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ariatemplates/grunt-verifylowercase/issues"
+  },
+  "licenses": [
+    {
+      "type": "Apache",
+      "url": "https://github.com/ariatemplates/grunt-verifylowercase/blob/master/LICENSE-Apache"
+    }
+  ],
+  "main": "grunt.js",
+  "bin": "bin/grunt-verifylowercase",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "grunt test --verbose"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.17"
+  },
+  "keywords": [
+    "gruntplugin",
+    "lowercase",
+    "extension"
+  ]
 }
